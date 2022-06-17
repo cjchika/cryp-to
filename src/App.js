@@ -33,11 +33,11 @@ const App = () => {
                   <Exchanges />
                 </Route>
 
-                <Route exact path="/crytocurrencies">
+                <Route exact path="/cryptocurrencies">
                   <Cryptocurrencies />
                 </Route>
 
-                <Route exact path="/crytocurrencies/:coinId">
+                <Route exact path="/crypto/:coinId">
                   <CryptoDetails />
                 </Route>
 
@@ -47,8 +47,21 @@ const App = () => {
               </Switch>
             </div>
           </Layout>
+
+          <div className="footer">
+            <Typography.Title
+              level={5}
+              style={{ color: "white", textAlign: "center" }}
+            >
+              Cryp.to <br /> All Rights Reserved.
+            </Typography.Title>
+            <Space>
+              <Link to="/">Home</Link>
+              <Link to="/exchanges">Exchanges</Link>
+              <Link to="/news">News</Link>
+            </Space>
+          </div>
         </div>
-        <div className="footer"></div>
       </div>
     </Fragment>
   );
