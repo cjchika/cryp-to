@@ -1,25 +1,57 @@
-import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import { Layout, Typography, Space } from 'antd';
+import React, { Fragment } from "react";
+import { Route, Link, Switch } from "react-router-dom";
+import { Layout, Typography, Space } from "antd";
 
-import './App.css'
+import "./App.css";
 
-import { Navbar } from './components';
+import {
+  Navbar,
+  CryptoDetails,
+  Cryptocurrencies,
+  News,
+  Exchanges,
+  Homepage,
+} from "./components";
+import { FileJpgOutlined } from "@ant-design/icons";
 
 const App = () => {
   return (
-    <div className='app'>
-			<div className='navbar'>
-				<Navbar />
-			</div>
-			<div className='main'>
+    <Fragment>
+      <div className="app">
+        <div className="navbar">
+          <Navbar />
+        </div>
+        <div className="main">
+          <Layout>
+            <div className="routes">
+              <Switch>
+                <Route exact path="/">
+                  <Homepage />
+                </Route>
 
-			</div>
-			<div className='footer'>
+                <Route exact path="/exchanges">
+                  <Exchanges />
+                </Route>
 
-			</div>
-    </div>
-  )
-}
+                <Route exact path="/crytocurrencies">
+                  <Cryptocurrencies />
+                </Route>
 
-export default App
+                <Route exact path="/crytocurrencies/:coinId">
+                  <CryptoDetails />
+                </Route>
+
+                <Route exact path="/news">
+                  <News />
+                </Route>
+              </Switch>
+            </div>
+          </Layout>
+        </div>
+        <div className="footer"></div>
+      </div>
+    </Fragment>
+  );
+};
+
+export default App;
